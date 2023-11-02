@@ -82,3 +82,23 @@ Mengembalikan nilai keluaran saat ini.
 `void reset()`
 Mereset kontrol PID.
 
+Contoh Penggunaan
+
+Berikut adalah contoh penggunaan library ini:
+
+```
+#include <PID_Kontrol.h>
+
+PID_Kontrol pid(1.0, 0.1, 0.01, 50, 0, 100, 0, 255);
+
+void setup() {
+  pid.mulai();
+}
+
+void loop() {
+  double feedback = readSensorValue();
+  double output = pid.kalkulasi(feedback);
+  setMotorSpeed(output);
+}
+
+```
